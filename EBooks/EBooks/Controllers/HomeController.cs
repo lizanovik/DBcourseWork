@@ -1,44 +1,60 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
-using DAL.Entities;
+using BLL_core.Interfaces;
+using BLL_core.Pagination;
+using DAL_core.Entities;
+using DAL_core.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace EBooks.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IProductService _productService;
+
+        public HomeController(IProductService productService)
+        {
+            _productService = productService;
+        }
+
+        public IActionResult HomePage()
         {
             return View();
         }
 
-        public IActionResult About()
+        public async Task<IActionResult> EBooks(string searchString, int page = 1, SortState sortState = SortState.Price, SortOrder sortOrder = SortOrder.Asc)
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            var ebooks = _productService.GetProductsByCategory(1);
+            var sortedBooks = _productService.GetSortOrder(sortState, sortOrder, ebooks);
+            var pageModel = await _productService.AddPaginationSortingFiltering(sortedBooks, page, 8, sortState, sortOrder, searchString);
+            return View(pageModel);
         }
 
-        public IActionResult Contact()
+        public async Task<IActionResult> Accessories(string searchString, int page = 1, SortState sortState = SortState.Price, SortOrder sortOrder = SortOrder.Asc)
         {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            var accessories = _productService.GetProductsByCategory(2);
+            var sortedAccessories = _productService.GetSortOrder(sortState, sortOrder, accessories);
+            var pageModel = await _productService.AddPaginationSortingFiltering(sortedAccessories, page, 8, sortState, sortOrder, searchString);
+            return View(pageModel);
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> Search(string searchString, int page = 1, SortState sortState = SortState.Price, SortOrder sortOrder = SortOrder.Asc)
         {
-            return View();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                var products = _productService.FullTextSearch(searchString);
+                var sortedProducts = _productService.GetSortOrder(sortState, sortOrder, products);
+                var pageModel = await _productService.AddPaginationSortingFiltering(sortedProducts, page, 8, sortState, sortOrder, searchString);
+                return View(pageModel);
+            }
+
+            return View("EmptySearch");
         }
 
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
 }

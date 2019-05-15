@@ -1,0 +1,48 @@
+﻿
+@using BLL_core.Pagination
+@model BLL_core.Pagination.HomeViewModel
+
+    <div id="container" style="width:1100px;margin:0 auto;">
+        <form asp-controller="Home" asp-action="Search" method="get" style="text-align: center; margin: 10px ">
+            <div class="form-group ">
+                <input asp-for="FilterModel.CurrentSearch" type="text" name="SearchString" />
+                <input type="submit" value="Поиск" class="btn btn-default" />
+            </div>
+        </form>
+        <h2 class="text-center">Электронные книги</h2>
+        <table class="table table-condensed" style="margin-left: 10px">
+            <tr>
+                <th>Название</th>
+                <th>Производитель<a asp-controller="Home" asp-action="EBooks" asp-route-searchString="@Model.FilterModel.CurrentSearch" asp-route-sortState="@SortState.Firm" asp-route-sortOrder="@Model.SortModel.SortOrder" asp-route-page="@Model.PageViewModel.PageNumber"> &#8661;</a></th>
+                <th>Цена<a asp-controller="Home" asp-action="EBooks" asp-route-searchString="@Model.FilterModel.CurrentSearch" asp-route-sortState="@SortState.Price" asp-route-sortOrder="@Model.SortModel.SortOrder" asp-route-page="@Model.PageViewModel.PageNumber"> &#8661;</a></th>
+                <th>Изображение</th>
+                <th>Количество</th>
+            </tr>
+            @Html.Partial("ProductsPartial")
+        </table>
+
+        @if (Model.PageViewModel.HasPreviousPage)
+        {
+            <a asp-action="EBooks"
+               asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+               asp-route-sortOrder="@Model.SortModel.CurrentOrder"
+               asp-route-sortState="@Model.SortModel.CurrentSort"
+               asp-route-searchString="@Model.FilterModel.CurrentSearch"
+               class="btn btn-default btn">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Previous
+            </a>
+        }
+        @if (Model.PageViewModel.HasNextPage)
+        {
+            <a asp-action="EBooks"
+               asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+               asp-route-sortOrder="@Model.SortModel.CurrentOrder"
+               asp-route-sortState="=@Model.SortModel.CurrentSort"
+               asp-route-searchString="@Model.FilterModel.CurrentSearch"
+               class="btn btn-default btn">
+                Next
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </a>
+        }
+    </div>

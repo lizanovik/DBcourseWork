@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using DAL.Entities;
-using DAL.EntityFramework;
+using DAL_core.Entities;
+using DAL_core.EntityFramework;
 
 namespace EBooks
 {

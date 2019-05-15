@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using BLL.DTO;
-using DAL.Entities;
+using BLL_core.DTO;
+using DAL_core.Entities;
 using EBooks.ViewModels.AccountViewModels;
 
-namespace VapeShop.AutoMapper
+namespace EBooks.AutoMapper
 {
     public class MapperConfig : Profile
     {

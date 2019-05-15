@@ -1,0 +1,43 @@
+﻿@model BLL_core.DTO.AddProductModel
+
+
+<form method="post" asp-controller="Admin" asp-action="AddProduct" style="margin: 10px">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div style="text-align: left">
+        <div class="form-group">
+            <label asp-for="Title" class="control-label"></label>
+            <input asp-for="Title" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <input asp-for="Description" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Price" class="control-label"></label>
+            <input asp-for="Price" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="AmountInStock" class="control-label"></label>
+            <input asp-for="AmountInStock" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ProductCategotyId" class="control-label">Category </label>
+            @*<input asp-for="ProductCategotyId" class="form-control" />*@
+            <select asp-for="ProductCategotyId" asp-items="@ViewBag.Categories"> </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="SupplierId" class="control-label">Supplier</label>
+            @*@Html.DropDownList(Model.SupplierId, ViewBag.Suppliers as SelectList)*@
+            <select asp-for="SupplierId" asp-items="@ViewBag.Suppliers"> </select>
+            @*<input asp-for="SupplierId" class="form-control" />*@
+        </div>
+        <div class="form-group">
+            <label asp-for="Image" class="control-label"></label>
+            <input asp-for="Image" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add" class=" btn btn-info btn-block" />
+    </div>
+</form>
+

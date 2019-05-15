@@ -1,0 +1,12 @@
+D:\epamprojects\DBcourseWork\EBooks\BLL_core\bin\Debug\netcoreapp2.1\BLL_core.deps.json
+D:\epamprojects\DBcourseWork\EBooks\BLL_core\bin\Debug\netcoreapp2.1\BLL_core.dll
+D:\epamprojects\DBcourseWork\EBooks\BLL_core\bin\Debug\netcoreapp2.1\BLL_core.pdb
+D:\epamprojects\DBcourseWork\EBooks\BLL_core\bin\Debug\netcoreapp2.1\DAL-core.dll
+D:\epamprojects\DBcourseWork\EBooks\BLL_core\bin\Debug\netcoreapp2.1\DAL-core.pdb
+D:\epamprojects\DBcourseWork\EBooks\BLL_core\obj\Debug\netcoreapp2.1\BLL_core.csprojAssemblyReference.cache
+D:\epamprojects\DBcourseWork\EBooks\BLL_core\obj\Debug\netcoreapp2.1\BLL_core.csproj.CoreCompileInputs.cache
+D:\epamprojects\DBcourseWork\EBooks\BLL_core\obj\Debug\netcoreapp2.1\BLL_core.AssemblyInfoInputs.cache
+D:\epamprojects\DBcourseWork\EBooks\BLL_core\obj\Debug\netcoreapp2.1\BLL_core.AssemblyInfo.cs
+D:\epamprojects\DBcourseWork\EBooks\BLL_core\obj\Debug\netcoreapp2.1\BLL_core.csproj.CopyComplete
+D:\epamprojects\DBcourseWork\EBooks\BLL_core\obj\Debug\netcoreapp2.1\BLL_core.dll
+D:\epamprojects\DBcourseWork\EBooks\BLL_core\obj\Debug\netcoreapp2.1\BLL_core.pdb

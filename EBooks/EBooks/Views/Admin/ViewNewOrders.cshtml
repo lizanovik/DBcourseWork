@@ -1,0 +1,27 @@
+﻿@using BLL_core.DTO
+@model List<BLL_core.DTO.OrderModel>
+
+<table class="table table-condensed">
+    <tr>
+        <th>Customer Id</th>
+        <th>Order Date</th>
+        <th>Status</th>
+    </tr>
+
+    @foreach (var order in Model)
+    {
+        <tr>
+            <td class="col-md-3"> @order.CustomerId </td>
+            <td class="col-md-3">@order.OrderDate</td>
+            <td class="col-md-3">@order.Status</td>
+            <td> <form asp-controller="Admin" asp-action="ConfirmOrder" asp-route-id="@order.Id">
+                <input type="submit" class="btn btn-success" value="Confirm" />
+            </form></td>
+            <td>
+                <form asp-controller="Admin" asp-action="RejectOrder" asp-route-id="@order.Id">
+                    <input type="submit" class="btn btn-danger" value="Reject" />
+                </form>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,27 @@
+﻿
+@using BLL_core.DTO
+@model OrderModel
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h3 class ="text-center">Order Details</h3>
+        <button class="close" data-dismiss="modal" area-hidden="true">X</button>
+    </div>
+    <div class="modal-body" >
+        @foreach (var detail in Model.OrderDetails)
+        {
+            <dl class="dl-horizontal">
+                <dt>Title</dt>
+                <dd> @detail.Product.Title</dd>
+
+                <dt>Price per item</dt>
+                <dd> @detail.Product.Price</dd>
+
+                <dt>Quantity</dt>
+                <dd> @detail.Quantity</dd>
+
+            </dl>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,12 @@
+﻿
+@model BLL_core.Pagination.HomeViewModel
+
+@for(int i=0;i<(Model.Items).Count();i++)
+{
+    <tr>
+        @Html.Partial("ProductPartial", @Model.Items[i], new ViewDataDictionary(new Microsoft.AspNetCore.Mvc.ModelBinding.EmptyModelMetadataProvider(),
+            new Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary()  ) { { "RowId", i } } )
+    </tr>
+}
+
+

@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
-using BLL;
-using BLL.Interfaces;
-using BLL.Services;
-using DAL.Interfaces;
-using DAL.Repositories;
+using BLL_core;
+using BLL_core.Interfaces;
+using BLL_core.Services;
+using DAL_core.Interfaces;
+using DAL_core.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,9 +28,9 @@ namespace EBooks
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<DAL.EntityFramework.EBooksContext>(options => options.UseSqlServer(connection));
-            services.AddIdentity<DAL.Entities.User, IdentityRole>()
-                .AddEntityFrameworkStores<DAL.EntityFramework.EBooksContext>()
+            services.AddDbContext<DAL_core.EntityFramework.EBooksContext>(options => options.UseSqlServer(connection));
+            services.AddIdentity<DAL_core.Entities.User, IdentityRole>()
+                .AddEntityFrameworkStores<DAL_core.EntityFramework.EBooksContext>()
             .AddDefaultTokenProviders();
             services.AddAutoMapper();
             services.AddMvc();
@@ -62,7 +63,7 @@ namespace EBooks
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
+                    name: "Default",
                     template: "{controller=Home}/{action=HomePage}/{id?}");
             });
         }

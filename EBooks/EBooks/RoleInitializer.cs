@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DAL.Entities;
+using DAL_core.Entities;
 using Microsoft.AspNetCore.Identity;
 
 namespace EBooks

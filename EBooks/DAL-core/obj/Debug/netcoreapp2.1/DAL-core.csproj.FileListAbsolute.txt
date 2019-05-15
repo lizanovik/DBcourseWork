@@ -1,0 +1,9 @@
+D:\epamprojects\DBcourseWork\EBooks\DAL-core\bin\Debug\netcoreapp2.1\DAL-core.deps.json
+D:\epamprojects\DBcourseWork\EBooks\DAL-core\bin\Debug\netcoreapp2.1\DAL-core.dll
+D:\epamprojects\DBcourseWork\EBooks\DAL-core\bin\Debug\netcoreapp2.1\DAL-core.pdb
+D:\epamprojects\DBcourseWork\EBooks\DAL-core\obj\Debug\netcoreapp2.1\DAL-core.csproj.CoreCompileInputs.cache
+D:\epamprojects\DBcourseWork\EBooks\DAL-core\obj\Debug\netcoreapp2.1\DAL-core.AssemblyInfoInputs.cache
+D:\epamprojects\DBcourseWork\EBooks\DAL-core\obj\Debug\netcoreapp2.1\DAL-core.AssemblyInfo.cs
+D:\epamprojects\DBcourseWork\EBooks\DAL-core\obj\Debug\netcoreapp2.1\DAL-core.dll
+D:\epamprojects\DBcourseWork\EBooks\DAL-core\obj\Debug\netcoreapp2.1\DAL-core.pdb
+D:\epamprojects\DBcourseWork\EBooks\DAL-core\obj\Debug\netcoreapp2.1\DAL-core.csprojAssemblyReference.cache

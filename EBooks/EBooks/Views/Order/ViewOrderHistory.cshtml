@@ -1,0 +1,42 @@
+﻿@model List<BLL_core.DTO.OrderModel>
+
+<h1 class="text-center">Your order history</h1>
+<div id="modDialog" class="modal fade">
+    <div id="dialogContent" class="modal-dialog"></div>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th>Order Date</th>
+        <th>Status</th>
+        <th> </th>
+    </tr>
+    @foreach (var order in Model)
+    {
+        <tr>
+            <td>@order.OrderDate</td>
+            <td>@order.Status</td>
+            <td>
+                @Html.ActionLink("Details", "OrderDetails", "Order", new { id = @order.Id }, new { @class = "active" })
+            </td>
+        </tr>
+
+    }
+</table>
+@section scripts
+{
+    <script type="text/javascript">
+        $(function() {
+            $.ajaxSetup({ cache: false });
+            $(".active").click(function(e) {
+                e.preventDefault();
+                $.get(this.href,
+                    function(data) {
+                        $('#dialogContent').html(data);
+                        $('#modDialog').modal('show');
+                    });
+            });
+
+        })
+    
+    </script>
+}

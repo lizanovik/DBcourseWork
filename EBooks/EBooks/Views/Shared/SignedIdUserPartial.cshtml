@@ -1,0 +1,22 @@
+﻿<ul class="nav navbar-nav">
+    <li><a asp-area="" asp-controller="Home" asp-action="EBooks">Электронные книги</a></li>
+    <li><a asp-area="" asp-controller="Home" asp-action="Accessories">Аксессуары</a></li>
+    <li>
+        <form asp-controller="Home" asp-action="Search" method="get">
+            <div class="navbar-form">
+                <input type="text" name="SearchString" value="" />
+                <input type="submit" value="Поиск" class="btn btn-default" />
+            </div>
+        </form>
+    </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+    <li><a asp-area="" asp-controller="Order" asp-action="ViewOrderHistory">Заказы</a></li>
+    <li>
+        <a asp-area="" asp-controller="ShoppingCart" asp-action="ViewCart" title="ShoppingCart">Корзина</a>
+    </li>
+    <li>
+        <a asp-area="" asp-controller="Manage" asp-action="EditPersonalData" title="Manage">Мой профиль</a>
+    </li>
+    <li> <a asp-controller="Account" asp-action="LogOff">Выйти</a></li>
+</ul>
