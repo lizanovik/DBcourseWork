@@ -25,17 +25,17 @@ namespace EBooks.Controllers
 
         public async Task<IActionResult> EBooks(string searchString, int page = 1, SortState sortState = SortState.Price, SortOrder sortOrder = SortOrder.Asc)
         {
-            var ebooks = _productService.GetProductsByCategory(1);
+            var ebooks = _productService.GetProductsByCategory(3);
             var sortedBooks = _productService.GetSortOrder(sortState, sortOrder, ebooks);
-            var pageModel = await _productService.AddPaginationSortingFiltering(sortedBooks, page, 8, sortState, sortOrder, searchString);
+            var pageModel = await _productService.AddPaginationSortingFiltering(sortedBooks, page, 5, sortState, sortOrder, searchString);
             return View(pageModel);
         }
 
         public async Task<IActionResult> Accessories(string searchString, int page = 1, SortState sortState = SortState.Price, SortOrder sortOrder = SortOrder.Asc)
         {
-            var accessories = _productService.GetProductsByCategory(2);
+            var accessories = _productService.GetProductsByCategory(4);
             var sortedAccessories = _productService.GetSortOrder(sortState, sortOrder, accessories);
-            var pageModel = await _productService.AddPaginationSortingFiltering(sortedAccessories, page, 8, sortState, sortOrder, searchString);
+            var pageModel = await _productService.AddPaginationSortingFiltering(sortedAccessories, page, 5, sortState, sortOrder, searchString);
             return View(pageModel);
         }
 
@@ -45,7 +45,7 @@ namespace EBooks.Controllers
             {
                 var products = _productService.FullTextSearch(searchString);
                 var sortedProducts = _productService.GetSortOrder(sortState, sortOrder, products);
-                var pageModel = await _productService.AddPaginationSortingFiltering(sortedProducts, page, 8, sortState, sortOrder, searchString);
+                var pageModel = await _productService.AddPaginationSortingFiltering(sortedProducts, page, 5, sortState, sortOrder, searchString);
                 return View(pageModel);
             }
 

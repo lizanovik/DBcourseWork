@@ -60,14 +60,14 @@ namespace EBooks.Controllers
         public async Task<IActionResult> ConfirmOrder(int id)
         {
             await _adminService.ConfirmOrder(id);
-            await _adminService.SendConfirmationMessage(id);
+            //await _adminService.SendConfirmationMessage(id);
             return RedirectToAction("HomePage", "Home");
         }
 
         public async Task<IActionResult> RejectOrder(int id)
         {
             await _adminService.RejectOrder(id);
-            await _adminService.SendRejectionMessage(id);
+            //await _adminService.SendRejectionMessage(id);
             return RedirectToAction("HomePage", "Home");
         }
     }

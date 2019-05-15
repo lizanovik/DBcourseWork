@@ -26,7 +26,7 @@
            asp-route-sortState="@Model.SortModel.CurrentSort"
            class="btn btn-default btn">
             <i class="glyphicon glyphicon-chevron-left"></i>
-            Previous
+            Предыдущая
         </a>
     }
     @if (Model.PageViewModel.HasNextPage)
@@ -37,7 +37,7 @@
            asp-route-sortState="@Model.SortModel.CurrentSort"
            asp-route-searchString="@Model.FilterModel.CurrentSearch"
            class="btn btn-default btn">
-            Next
+            Следующая
             <i class="glyphicon glyphicon-chevron-right"></i>
         </a>
     }

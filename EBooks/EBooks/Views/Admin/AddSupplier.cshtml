@@ -1,27 +1,28 @@
 ﻿@model BLL_core.DTO.AddSupplierModel
-<form method="post" asp-controller="Admin" asp-action="AddSupplier" style="margin: 10px">
-    <div asp-validation-summary="ModelOnly"></div>
-    <div style="text-align: left">
-        <div class="form-group">
-            <label asp-for="CompanyName" class="control-label"></label>
-            <input asp-for="CompanyName" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label asp-for="Description" class="control-label"></label>
-            <input asp-for="Description" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label asp-for="Phone" class="control-label"></label>
-            <input asp-for="Phone" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label asp-for="Email" class="control-label"></label>
-            <input asp-for="Email" class="form-control" />
-        </div>
+<div id="container" style="width:1100px;margin:0 auto;">
+    <form method="post" asp-controller="Admin" asp-action="AddSupplier" style="margin: 10px">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div style="text-align: left">
+            <div class="form-group">
+                <label asp-for="CompanyName" class="control-label">Производитель</label>
+                <input asp-for="CompanyName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Описание</label>
+                <input asp-for="Description" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label">Телефон</label>
+                <input asp-for="Phone" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Почтовый ящик</label>
+                <input asp-for="Email" class="form-control" />
+            </div>
 
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Add" class=" btn btn-info btn-block" />
-    </div>
-</form>
-
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Добавить" class=" btn btn-info btn-block" />
+        </div>
+    </form>
+</div>

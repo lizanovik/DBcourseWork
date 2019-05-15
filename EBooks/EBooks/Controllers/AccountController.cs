@@ -43,9 +43,9 @@ namespace EBooks.Controllers
                         "Account",
                         new { userId = currentUser.Id, code },
                         protocol: HttpContext.Request.Scheme);
-
-                    await _emailService.SendConfirmationMessage(dtoModel, callbackUrl);
-                    return View("EmailConfirmation");
+                    _userService.AddCustomer(currentUser.Id);
+                    //await _emailService.SendConfirmationMessage(dtoModel, callbackUrl);
+                    return View("ConfirmEmail");
                 }
                 else
                 {

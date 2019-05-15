@@ -1,6 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using BLL_core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace EBooks.Controllers
 {
@@ -40,6 +42,24 @@ namespace EBooks.Controllers
         {
             var order = await _orderService.GetOrder(id);
             return PartialView("OrderDetailsPartial", order);
+        }
+
+        public async Task<IActionResult> SaveToJson(int id)
+        {
+            var order = await _orderService.GetOrder(id);
+            List<string> products = new List<string>();
+            double pr = 0;
+            foreach (var aa in order.OrderDetails)
+            {
+                products.Add(aa.Product.Title);
+                pr += aa.Product.Price * aa.Quantity;
+            }
+            var ord = new { date = order.OrderDate, product = products, price = pr };
+
+            string json = JsonConvert.SerializeObject(ord);
+
+            System.IO.File.WriteAllText(@"D:\path.txt", json);
+            return Ok();
         }
     }
 }
